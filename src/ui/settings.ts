@@ -85,6 +85,12 @@ export class SettingsView implements View {
         UI.setTheme(theme);
       })
     );
+    this.settings.appendChild(
+      checkedRadioRow('rotate', ['true', 'false'], function(this: HTMLInputElement) {
+        const rotate = this.value === 'false' ;
+        UI.updateSettings({ rotate });
+      })
+    );
 
     return this.settings;
   }
@@ -103,6 +109,7 @@ export class SettingsView implements View {
     set(`grade${global.SETTINGS.grade}`);
     set(`scoreDisplay${global.SETTINGS.display}`);
     set(`theme${global.SETTINGS.theme || 'Light'}`);
+    set(`rotate${global.SETTINGS.rotate || 'true'}`);
   }
 
   onInput(id: string) {

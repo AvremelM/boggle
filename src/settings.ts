@@ -12,5 +12,6 @@ export interface Settings {
   min: MinLength;
   grade: Exclude<Grade, ' '>;
   display: ScoreDisplay;
+  rotate?: boolean;
   theme?: Theme;
 }

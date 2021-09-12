@@ -179,7 +179,10 @@ export class BoardView implements View {
         text.textContent = game.board[row * game.size + col];
         if (text.textContent === 'Qu') text.classList.add('qu');
         if (['M', 'W', 'Z'].includes(text.textContent)) text.classList.add('underline');
-        text.classList.add(`rotate${90 * random.next(0, 4)}`);
+        
+        if (global.SETTINGS.rotate === true) {
+          text.classList.add(`rotate${90 * random.next(0, 4)}`);
+        }
         td.setAttribute('data-x', String(row));
         td.setAttribute('data-y', String(col));
         td.appendChild(text);
