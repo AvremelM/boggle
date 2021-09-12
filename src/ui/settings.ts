@@ -87,7 +87,7 @@ export class SettingsView implements View {
     );
     this.settings.appendChild(
       checkedRadioRow('rotate', ['true', 'false'], function(this: HTMLInputElement) {
-        const rotate = this.value === 'false' ;
+        const rotate = this.value !== 'false' ;
         UI.updateSettings({ rotate });
       })
     );
